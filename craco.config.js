@@ -10,5 +10,14 @@ module.exports = {
             '@Layouts': path.resolve(__dirname, 'src', 'Layouts/'),
             '@Services': path.resolve(__dirname, 'src', 'Services/')
         }
-    }
+    },
+
+    style: {
+        postcss: {
+            plugins: [
+                require('tailwindcss'),
+                require('autoprefixer'),
+            ],
+        },
+    },
 };
