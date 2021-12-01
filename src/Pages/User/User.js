@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 
-import UserService from "../../Services/UserService";
+import UserService from "@Services/UserService";
 
 function User() {
     const [users, setUser] = useState([]);
@@ -31,6 +32,9 @@ function User() {
                     }
                 </ul>
             </fieldset>
+            <Link to="/posts">
+                Posts
+            </Link>
         </div>
     )
 }
