@@ -5,12 +5,19 @@ class Api {
 
     constructor() {
         this.httpClient = axios.create({
-            baseURL: "http://localhost"
+            baseURL: "http://localhost",
+            headers: {
+                Authorization: "Bearer 1|LIOkKZmS0TvuNGjF2BeIIUFmyXpamhcFWp7sRXL4",
+            }
         });
     }
 
     get(endpoint) {
         return this.httpClient.get(endpoint);
+    }
+
+    post(endpoint, data) {
+        return this.httpClient.post(endpoint, data)
     }
 }
 
