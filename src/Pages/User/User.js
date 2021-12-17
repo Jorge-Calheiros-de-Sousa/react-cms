@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+
+import Admin from "@Layouts/Private/Admin";
 
 import UserService from "@Services/UserService";
 
@@ -20,21 +21,20 @@ function User() {
 
     return (
         <div>
-            <h1>Tela de usuários</h1>
+            <Admin>
+                <h1>Tela de usuários</h1>
 
-            <fieldset>
-                <legend>List of User</legend>
-                <ul>
-                    {
-                        users.map(user => (
-                            <li> {user.name} </li>
-                        ))
-                    }
-                </ul>
-            </fieldset>
-            <Link to="/posts">
-                Posts
-            </Link>
+                <fieldset>
+                    <legend>List of User</legend>
+                    <ul>
+                        {
+                            users.map(user => (
+                                <li> {user.name} </li>
+                            ))
+                        }
+                    </ul>
+                </fieldset>
+            </Admin>
         </div>
     )
 }
