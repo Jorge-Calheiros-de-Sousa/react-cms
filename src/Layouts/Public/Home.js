@@ -24,6 +24,9 @@ export default function Home({ children }) {
                             LogOut
                         </NavLink>
                     </nav>
+                    <nav class="md:ml-auto flex flex-wrap items-center text-base justify-center">
+                        <NavLink to={"/posts/create"} style={"mr-5 hover:text-gray-900"}> Create Post +</NavLink>
+                    </nav>
                 </div>
             </header>
 
