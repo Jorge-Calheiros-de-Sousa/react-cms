@@ -20,39 +20,32 @@ function Posts() {
     return (
         <div>
             <Home>
-                <section className="text-gray-600 body-font overflow-hidden">
-                    <div className="container px-5 py-24 mx-auto">
-                        <div className="flex flex-wrap -m-12">
+                <div className=" p-3 flex flex-wrap w-fit justify-center">
+                    {posts.map(post => {
+                        return (
+                            <div className="bg-white border shadow-sm px-4 py-3 m-1 rounded-lg box-content max-w-lg">
+                                <div className="flex items-center">
+                                    <img className="h-12 w-12 rounded-full" src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" />
+                                    <div className="ml-2">
+                                        <div className="text-sm ">
+                                            <span className="font-semibold">{post.user.name}</span>
+                                        </div>
+                                        <div className="text-gray-500 text-xs ">{post.user.email}</div>
+                                        <div className="text-gray-500 text-xs flex">
 
-                            {posts.map(post => (
-                                <div className="p-12 md:w-1/2 flex flex-col items-start">
-                                    <span className="inline-block py-1 px-2 rounded bg-green-50 text-green-500 text-xs font-medium tracking-widest">CATEGORY</span>
-                                    <br></br>
-                                    <div class="md:flex-shrink-0">
-                                        <img src="https://ik.imagekit.io/q5edmtudmz/post1_fOFO9VDzENE.jpg" alt="mountains" class="" />
+                                        </div>
                                     </div>
-                                    <h2 className="sm:text-3xl text-2xl title-font font-medium text-gray-900 mt-4 mb-4">{post.title}</h2>
-                                    <p className="leading-relaxed mb-8"></p>
-                                    <div className="flex items-center flex-wrap pb-4 mb-4 border-b-2 border-gray-100 mt-auto w-full">
-                                        <a className="text-green-500 inline-flex items-center">Learn More
-                                            <svg className="w-4 h-4 ml-2" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round">
-                                                W                                    <path d="M5 12h14"></path>
-                                                <path d="M12 5l7 7-7 7"></path>
-                                            </svg>
-                                        </a>
-                                    </div>
-                                    <a className="inline-flex items-center">
-                                        <img alt="blog" src="https://dummyimage.com/104x104" className="w-12 h-12 rounded-full flex-shrink-0 object-cover object-center" />
-                                        <span className="flex-grow flex flex-col pl-4">
-                                            <span className="title-font font-medium text-gray-900">{post.user.name}</span>
-                                            <span className="text-gray-400 text-xs tracking-widest mt-0.5">{post.user.email}</span>
-                                        </span>
-                                    </a>
                                 </div>
-                            ))}
-                        </div>
-                    </div>
-                </section>
+                                <div>
+                                    <h2>{post.title}</h2>
+                                </div>
+                                <p className="text-gray-800 text-sm mt-2 leading-normal md:leading-relaxed">
+                                    {post.content}
+                                </p>
+                            </div>
+                        )
+                    })}
+                </div>
             </Home>
         </div>
     );

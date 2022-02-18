@@ -17,7 +17,15 @@ class Api {
     }
 
     post(endpoint, data) {
-        return this.httpClient.post(endpoint, data)
+        return this.httpClient.post(endpoint, data);
+    }
+
+    put(endpoint, data) {
+        return this.httpClient.put(endpoint, data);
+    }
+
+    delete(endpoint) {
+        return this.httpClient.delete(endpoint);
     }
 }
 
