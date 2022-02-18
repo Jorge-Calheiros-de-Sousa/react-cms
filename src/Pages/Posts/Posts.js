@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
 
 import PostService from "@Services/PostService";
+import Home from "@/Layouts/Public/Home";
 
 function Posts() {
     const [posts, setPosts] = useState([]);
@@ -19,39 +19,34 @@ function Posts() {
 
     return (
         <div>
-            <div className="p-16">
-                <div className="grid md:grid-cols-2 sm:grid-cols-1 lg:grid-cols-3 m-5 mb-10">
+            <Home>
+                <div className=" p-3 flex flex-wrap w-fit justify-center">
+                    {posts.map(post => {
+                        return (
+                            <div className="bg-white border shadow-sm px-4 py-3 m-1 rounded-lg box-content max-w-lg">
+                                <div className="flex items-center">
+                                    <img className="h-12 w-12 rounded-full" src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" />
+                                    <div className="ml-2">
+                                        <div className="text-sm ">
+                                            <span className="font-semibold">{post.user.name}</span>
+                                        </div>
+                                        <div className="text-gray-500 text-xs ">{post.user.email}</div>
+                                        <div className="text-gray-500 text-xs flex">
 
-                    {posts.map(post => (
-                        <div key={post.id} className="bg-white overflow-hidden hover:bg-green-100 border border-gray-200 p-3">
-                            <div className="m-2 text-justify text-sm">
-                                <p className="text-right text-xs">May 17, 2020</p>
-                                <h2 className="font-bold text-lg h-2 mb-8"> {post.title} </h2>
-                                <p className="text-xs">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div>
+                                    <h2>{post.title}</h2>
+                                </div>
+                                <p className="text-gray-800 text-sm mt-2 leading-normal md:leading-relaxed">
                                     {post.content}
                                 </p>
-
                             </div>
-                            <div className="w-full text-right mt-4">
-                                <a className="text-green-400 uppercase font-bold text-sm" href="#">Read More</a>
-                            </div>
-                        </div>
-                    ))}
+                        )
+                    })}
                 </div>
-            </div>
-            <ul>
-                <li>
-                    <Link to="/login">
-                        Login
-                    </Link>
-                </li>
-
-                <li>
-                    <Link to="/users">
-                        Users
-                    </Link>
-                </li>
-            </ul>
+            </Home>
         </div>
     );
 }
