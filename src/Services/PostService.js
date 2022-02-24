@@ -31,7 +31,7 @@ class PostService {
 
     async update(id, data) {
         try {
-            const response = await Api.put(`/api/posts/${id}`, data);
+            const response = await Api.put(`/api/posts/${id}`);
             return [response.data, false];
         } catch (error) {
             return [null, error];
@@ -40,7 +40,7 @@ class PostService {
 
     async destroy(id) {
         try {
-            const response = await Api.delete(`/api/posts/${parseInt(id)}`);
+            const response = await Api.delete(`/api/posts/${id}`);
             return [response.data, false];
         } catch (error) {
             return [null, error];
